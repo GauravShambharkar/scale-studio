@@ -1,14 +1,79 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Awwwards Design System Tokens: 3-Layer Architecture
+   Layer 1: Primitives -> Layer 2: Semantics -> Layer 3: Component Tokens
+   ========================================================================== */
 :root {
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* --- Layer 1: Primitives --- */
+  --primitive-neutral-950: #06090f;
+  --primitive-neutral-900: #0d121c;
+  --primitive-neutral-850: #121824;
+  --primitive-neutral-800: #1b2333;
+  --primitive-neutral-700: #2d3748;
+  --primitive-neutral-600: #4a5568;
+  --primitive-neutral-500: #718096;
+  --primitive-neutral-400: #a0aec0;
+  --primitive-neutral-300: #cbd5e1;
+  --primitive-neutral-200: #e2e8f0;
+  --primitive-neutral-100: #f1f5f9;
+  --primitive-neutral-50:  #f8fafc;
+
+  --primitive-blue-400: #60a5fa;
+  --primitive-blue-500: #3b82f6;
+  --primitive-blue-600: #2563eb;
+  --primitive-blue-700: #1d4ed8;
+
+  --primitive-emerald-400: #34d399;
+  --primitive-emerald-500: #10b981;
+
+  --primitive-amber-400: #fbbf24;
+  --primitive-purple-400: #c084fc;
+
+  /* --- Layer 2: Semantics --- */
+  --color-canvas-bg: var(--primitive-neutral-950);
+  --color-surface-card: rgba(13, 18, 28, 0.85);
+  --color-surface-subtle: rgba(18, 24, 36, 0.65);
+  --color-surface-header: rgba(13, 18, 28, 0.95);
+  
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-card: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 255, 255, 0.18);
+
+  --color-text-primary: var(--primitive-neutral-50);
+  --color-text-secondary: var(--primitive-neutral-400);
+  --color-text-muted: var(--primitive-neutral-500);
+
+  /* --- Layer 3: Component & Motion Tokens --- */
+  --ease-awwwards: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-display: "Space Grotesk", "Syne", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--color-canvas-bg);
+  color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Descender Safety (awaards-design-skills/descender-safety.md)
+   Prevents bounding box clipping on typography with descenders (g, y, p, q, j)
+   ========================================================================== */
+.descender-safe {
+  padding-bottom: 0.18em;
+  overflow: visible;
+}
+
+/* ==========================================================================
+   Awwwards Micro-Interactions (micro-interactions.md)
+   Snappy cubic-bezier(0.16, 1, 0.3, 1) transitions
+   ========================================================================== */
+.transition-awwwards {
+  transition-timing-function: var(--ease-awwwards);
 }
 
 /* Custom smooth scrollbar */
@@ -18,7 +83,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(6, 9, 15, 0.8);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -30,6 +95,7 @@ body {
   background: rgba(148, 163, 184, 0.6);
 }
 
+/* X-Ray Spacing Overlay Patterns */
 .inspect-padding-pattern {
   background-image: repeating-linear-gradient(
     45deg,
@@ -60,6 +126,7 @@ body {
   );
 }
 
+/* Canvas Grids */
 .figma-canvas-grid {
   background-size: 24px 24px;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);

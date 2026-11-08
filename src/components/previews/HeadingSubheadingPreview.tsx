@@ -50,7 +50,7 @@ export function HeadingSubheadingPreview({
         </span>
       </div>
 
-      {/* Heading: Google Sans Flex, tracking tight, color neutral (per skills.md) */}
+      {/* Heading: Space Grotesk / Syne display font, descender-safe, tracking tight */}
       <div className="flex flex-col">
         <h1
           contentEditable
@@ -59,9 +59,9 @@ export function HeadingSubheadingPreview({
           style={{
             fontSize: `${headingSize}px`,
             lineHeight: 1.25,
-            fontFamily: "'Google Sans Flex', 'Google Sans', system-ui, -apple-system, sans-serif",
+            fontFamily: "var(--font-display, 'Space Grotesk', system-ui, sans-serif)",
           }}
-          className={`font-bold tracking-tight outline-none cursor-text px-1 rounded hover:bg-neutral-500/10 transition-colors ${
+          className={`descender-safe font-bold tracking-tight outline-none cursor-text px-1 rounded hover:bg-neutral-500/10 transition-colors ${
             isLight ? "text-neutral-900" : "text-neutral-100"
           }`}
           title="Click to edit heading"
@@ -70,7 +70,7 @@ export function HeadingSubheadingPreview({
         </h1>
       </div>
 
-      {/* Subheading: regular / medium, color neutral-500 (per skills.md) */}
+      {/* Subheading: regular / medium, color neutral-500, descender safe */}
       <div className="flex flex-col">
         <h2
           contentEditable
@@ -79,9 +79,9 @@ export function HeadingSubheadingPreview({
           style={{
             fontSize: `${subheadingSize}px`,
             lineHeight: 1.35,
-            fontFamily: "'Google Sans Flex', 'Google Sans', system-ui, -apple-system, sans-serif",
+            fontFamily: "var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif)",
           }}
-          className="font-medium tracking-tight text-neutral-500 outline-none cursor-text px-1 rounded hover:bg-neutral-500/10 transition-colors"
+          className="descender-safe font-medium tracking-tight text-neutral-400 outline-none cursor-text px-1 rounded hover:bg-neutral-500/10 transition-colors"
           title="Click to edit subheading"
         >
           {subheadingText}
